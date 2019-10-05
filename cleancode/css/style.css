@@ -1,0 +1,26 @@
+*
+{
+  margin: 0;
+  padding: 0;
+}
+/*-------navigation-------*/
+#nav-bar
+{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navbar-brand img
+{
+  height: 40px;
+  padding-left: 30px;
+}
+.navbar-nav li a
+{
+  float: right;
+  text-align: left;
+}
+.nav-item
+{
+  float: right;
+}
