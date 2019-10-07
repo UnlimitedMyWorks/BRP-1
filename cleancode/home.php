@@ -48,7 +48,7 @@
                       <option value="" disabled="" selected="">To</option>
                       </select>
                       <br>
-                      <input type="date" id="doj" name="doj" min= <?php echo date('Y-m-d'); ?> placeholder="DD/MM/YYYY" required="">
+          <input type="date" id="doj" name="doj" min= <?php echo date('Y-m-d'); ?> placeholder="DD/MM/YYYY" required="">
           <br>
           <br>
           <input type="submit" method="POST" name="submit" value="Regsiter">
@@ -63,7 +63,6 @@
     $from = $_POST['from'];
     $to = $_POST['to'];
     $date=$_POST['doj'];
-    
     if($from == $to)
     {
         echo "<script>alert('from and destination cannot be same!!!')</script>";
@@ -74,10 +73,11 @@
       $result=$mysqli->query($sql);
       $count=mysqli_num_rows($result);
       $ticketid=md5(sha1(time()+$count));
-      $sql="INSERT INTO `ticket_bookings`(`mobile`, `ticket_id`, `fromDestination`, `toDestination`,`date`, `status`) VALUES ('$user','$ticketid','$from','$to','$date','TNO')";
+      $sql="INSERT INTO `ticket_bookings`(`mobile`, `ticket_id`, `fromDestination`, `toDestination`,`date`, `status`) VALUES ('$user','$ticketid','$from','$to','$doj','TNO')";
+      echo $sql;
       $result=$mysqli->query($sql);
       if($result)
-        echo "<script>alert('ticket booked !!')</script>";
+        echo "<script>window.location.href = 'myBookings.php'</script>";
       else
       echo "<script>alert('ticket not booked !!')</script>";
     }

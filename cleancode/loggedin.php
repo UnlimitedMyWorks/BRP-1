@@ -390,7 +390,7 @@ if(isset($_POST['text']))
       $result=$mysqli->query($sql);
       if($result)
       {
-        echo "<script>window.location = 'registered.php';</script>";
+        echo "<script>window.location = 'home.php';</script>";
       }
     }
   }
@@ -427,7 +427,7 @@ if (isset($_POST['submit']))
               $result=$mysqli->query($sql);
               if($result)
               {
-                  echo "<script>window.location = 'registered.php';</script>";
+                  echo "<script>window.location = 'home.php';</script>";
               }
           }
         }

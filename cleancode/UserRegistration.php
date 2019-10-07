@@ -1,4 +1,4 @@
-<?php include("config.php"); ?>
+<?php include("config.php");?>
 <html lang="en">
 <head>
 <!-- Character set configuration -->
@@ -185,7 +185,7 @@
                       <label>
                         Mobile
                         </label>
-                        <input id="phone" type="text" maxlength="10" name="mobile" onclick="inputNumber()" class="form-control" placeholder="Mobile" required >
+                        <input id="phone" type="text" maxlength="10" name="mobile" onclick="inputNumber(event)" class="form-control" placeholder="Mobile" required >
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -200,6 +200,12 @@
                     <div class="form-group common-ico">
                       <label>Zipcode</label>
                       <input id="zipcode" maxlength="6" type="text" name="zipcode" class="form-control" placeholder="Zipcode" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group common-ico">
+                      <label>Aadhar Number</label>
+                      <input id="aadharNum" maxlength="12" type="text" name="aadharNum" class="form-control" placeholder="Aadhar Number" required>
                     </div>
                   </div>
                 </div>
@@ -254,6 +260,7 @@
     $dob = $_POST['dob'];
     $zipcode = $_POST['zipcode'];
     $gender = $_POST['gender'];
+    $aadharNum = $_POST['aadharNum'];
     // if($mobile != 10)
     // {
     //   echo "<script>alert('enter valid phone number')</script>";
@@ -261,7 +268,8 @@
     // else
     // {
       $sql="INSERT INTO `registrations`(`fname`, `lname`, `email`, `address`, `state`, `city`, `mobile`, `DOB`, `zipcode`, `gender`)
-            VALUES ('$fname','$lname','$email','$address','$state','$city','$mobile','$dob','$zipcode','$gender')";
+            VALUES ('$fname','$lname','$email','$address','$state','$city','$mobile','$dob','$zipcode','$gender');
+            SELECT * FROM `db` WHERE aadharNum='$aadharNum' dob='$dob'";
       $result=$mysqli->query($sql);
       echo $sql;
       if($result)

@@ -6,20 +6,20 @@
           <h2><b> Wallet </b></h4>
             <span style="font-size: 80px" class="value">
             <strong>
-              Rs 
-              <?php 
+              Rs
+              <?php
                 $user=$_SESSION['user'];
                 $sql="SELECT * FROM walletdetails where mobile='$user'";
                 $result=$mysqli->query($sql);
-                if(mysqli_num_rows($result)==1)
-                {
+                //if(mysqli_num_rows($result)==1)
+                //{
                   $row=$result->fetch_assoc();
                   echo $row['money'];
-                }
-                else
-                {
-                  echo "<script>alert('Complete Your KYC now to enable Wallet!!');window.location.href='kyc.php';</script>";
-                }
+                //}
+//                else
+                // {
+                //   echo "<script>alert('Complete Your KYC now to enable Wallet!!');window.location.href='kyc.php';</script>";
+                // }
               ?>
             </strong>
           </span>

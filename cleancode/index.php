@@ -1,4 +1,4 @@
-<?php 
+<?php
   include("config.php");
   session_start();
   if(isset($_SESSION['user']))
@@ -10,7 +10,7 @@
     $mobile=$_POST['mobile'];
     $password=$_POST['password'];
     $password=md5($password);
-    $sql="SELECT * FROM `login` WHERE mobile='$mobile' and pass='$password'";
+    $sql="SELECT * FROM `login` WHERE mobile='$mobile' and password='$password'";
     $result=$mysqli->query($sql);
     $count=mysqli_num_rows($result);
     $row=$result->fetch_assoc();
@@ -20,8 +20,8 @@
     {
       $_SESSION["user"] = $row['mobile'];
       header("Location:home.php");
-    } 
-    else 
+    }
+    else
     {
         echo "<script>alert('Unmatched Mobile Number and Password');</script>";
     }
@@ -294,7 +294,7 @@ input[type=button], input[type=submit], input[type=reset]  {
 <hr>
     <div class="container">
       <label for="username"><b>Mobile Number</b></label>
-      <input id="mobile" type="text" placeholder="Enter Mobile Number" onclick="inputNumber()" name="mobile" required>
+      <input id="mobile" type="text" maxlength="10" placeholder="Enter Mobile Number" onclick="inputNumber()" name="mobile" required>
 
       <label for="psw"><b>Password</b></label>
       <input id="psw" type="password" placeholder="Enter Password" name="password" required>
